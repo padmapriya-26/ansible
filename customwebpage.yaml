@@ -1,0 +1,22 @@
+---
+- name: Installing and start the server
+  become: yes
+  hosts: all
+  tasks:
+    - name: Install & custom data
+      apt:
+       name: nginx
+       state: present
+    - name: starting the server
+      service:
+       name: nginx
+       state: started
+       enabled: yes
+    - name: copy the file
+      copy:
+       src: index.html
+       dest: /var/www/html/index.html
+~                                                            
+~                                                            
+~                                                            
+~                   
